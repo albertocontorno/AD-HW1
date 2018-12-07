@@ -49,7 +49,6 @@ export default class GraphVertex {
    */
   getNeighbors() {
     const edges = this.edges.toArray();
-
     /** @param {LinkedListNode} node */
     const neighborsConverter = (node) => {
       return node.value.startVertex === this ? node.value.endVertex : node.value.startVertex;
@@ -58,6 +57,17 @@ export default class GraphVertex {
     // Return either start or end vertex.
     // For undirected graphs it is possible that current vertex will be the end one.
     return edges.map(neighborsConverter);
+  }
+
+  getAllNeighbors(){
+    const edges = this.edges.toArray();
+    let neighbors = [];
+    console.log("edges", edges);
+    edges.forEach( edge => {
+      console.log(edge.value.startVertex === this)
+
+      edge.value.startVertex === this
+    });
   }
 
   /**
@@ -134,6 +144,10 @@ export default class GraphVertex {
    */
   toString(callback) {
     return callback ? callback(this.value) : `${this.value}`;
+  }
+
+  clone(){
+    return new GraphVertex(this.value);
   }
 
   equals(other){

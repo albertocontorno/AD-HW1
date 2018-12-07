@@ -35,6 +35,10 @@ export default class GraphEdge {
     return other.startVertex.equals(this.startVertex) && other.endVertex.equals(this.endVertex) && other.weight == this.weight;
   }
 
+  clone(){
+    return new GraphEdge(this.startVertex.clone(), this.endVertex.clone(), this.weight);
+  }
+
   /**
    * @return {string}
    */

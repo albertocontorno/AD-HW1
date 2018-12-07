@@ -32,11 +32,9 @@ export default function kruskal(graph, edge) {
   };
 
   const sortedEdges = new QuickSort(sortingCallbacks).sort(graph.getAllEdges());
-console.log("before", sortedEdges);
-  //if a egde is indicated, we put it as the first of the edges with the same weight
 
+  //if a egde is indicated, we put it as the first of the edges with the same weight
   if(edge){
-    console.log("EDGE", edge)
     let indexFirstWithSameWeight;
     let indexOfEdge;
     for(let i = 0; i<sortedEdges.length; i++){
@@ -47,14 +45,11 @@ console.log("before", sortedEdges);
         indexOfEdge = i;
       }
     }
-    console.log("before", sortedEdges);
-    console.log("indexOfEdge=", indexOfEdge, "indexFirstWithSameWeight=",indexFirstWithSameWeight);
     if(indexOfEdge != indexFirstWithSameWeight){
       let tmp = sortedEdges[indexFirstWithSameWeight];
       sortedEdges[indexFirstWithSameWeight] = sortedEdges[indexOfEdge];
       sortedEdges[indexOfEdge] = tmp;
     }
-    console.log(sortedEdges);
   }
 
   // Create disjoint sets for all graph vertices.
